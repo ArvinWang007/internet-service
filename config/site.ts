@@ -15,7 +15,7 @@ const baseSiteConfig = {
   keywords: ["landing page boilerplate", "landing page template", "awesome landing page", "next.js landing page"],
   authors: [
     {
-      name: "weijunext",
+      name: "haoshan hong",
       url: "https://weijunext.com",
       twitter: 'https://twitter.com/weijunext',
     }
