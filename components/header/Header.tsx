@@ -26,6 +26,10 @@ const links = [
     label: "FAQ",
     href: "/#FAQ",
   },
+  {
+    label: "Booking",
+    href: "/booking",
+  },
 ];
 
 const Header = () => {

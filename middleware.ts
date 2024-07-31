@@ -1,9 +1,14 @@
-import { locales } from "./lib/i18n";
 
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { locales } from "./lib/i18n";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // 确保 `/booking` 路径不会被重定向
+  if (pathname === '/booking') {
+    return;
+  }
 
   const isExit = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -12,7 +17,7 @@ export function middleware(request: NextRequest) {
   if (isExit) return;
 
   request.nextUrl.pathname = `/`;
-  return Response.redirect(request.nextUrl);
+  return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
