@@ -23,8 +23,13 @@ const BookingForm = () => {
 
     const cardElement = elements.getElement(CardElement);
 
+    // 确保 cardElement 不为空
+    if (!cardElement) {
+      console.error('Card Element not found');
+      return;
+    }
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
       card: cardElement,
       billing_details: {
         email,
