@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2020-08-27',
 });
 
@@ -10,8 +10,10 @@ export async function POST(req: Request) {
   try {
     const { paymentMethodId, date, duration, email } = body;
 
+    const amount = duration === 'One Week' ? 18800 : 75200; // $188 for one week, $752 for one month
+
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: duration === 'One Week' ? 18800 : 75200, // $188 for one week, $752 for one month
+      amount: amount,
       currency: 'usd',
       payment_method: paymentMethodId,
       confirmation_method: 'manual',
