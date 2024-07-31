@@ -84,7 +84,7 @@ const BookingForm = () => {
         <option value="One Week">One Week</option>
         <option value="One Month">One Month</option>
       </select>
-      <CardElement />
+      <CardElement options={{ hidePostalCode: true }} />
       <button type="submit" disabled={!stripe}>
         Book and Pay
       </button>
