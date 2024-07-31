@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.4",
+    "stripe": "^8.0.0",
     "@iconify/react": "^5.0.1",
     "@nextui-org/react": "^2.2.10",
     "@radix-ui/react-select": "^2.0.0",
