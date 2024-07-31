@@ -4,7 +4,8 @@ import { CardElement, Elements, useElements, useStripe } from '@stripe/react-str
 import { loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+// 使用类型断言确保 `process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` 是一个字符串
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
 
 const BookingForm = () => {
   const stripe = useStripe();
