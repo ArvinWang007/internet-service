@@ -1,4 +1,4 @@
-"use client"; // Add this line to mark the component as a Client Component
+"use client";
 
 import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -6,7 +6,13 @@ import { useState } from 'react';
 import styles from './BookingForm.module.css';
 
 // 从环境变量中加载 Stripe 公钥
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+const stripePublicKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+
+if (!stripePublicKey) {
+  throw new Error('Stripe public key is not defined in environment variables');
+}
+
+const stripePromise = loadStripe(stripePublicKey);
 
 const BookingForm = () => {
   return (
