@@ -1,24 +1,28 @@
 "use client";
 
 import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-import React, { useState } from 'react';
+import { loadStripe, Stripe } from '@stripe/stripe-js';
+import React, { useEffect, useState } from 'react';
 import styles from './BookingForm.module.css';
 
-// 从环境变量中加载 Stripe 公钥
-const stripePublicKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-
-if (!stripePublicKey) {
-  throw new Error('Stripe public key is not defined in environment variables');
-}
-
-const stripePromise = loadStripe(stripePublicKey);
-
 const BookingForm = () => {
-  return (
+  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null> | null>(null);
+
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+    if (!publicKey) {
+      console.error('Stripe public key is not defined in environment variables');
+    } else {
+      setStripePromise(loadStripe(publicKey));
+    }
+  }, []);
+
+  return stripePromise ? (
     <Elements stripe={stripePromise}>
       <CheckoutForm />
     </Elements>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
@@ -42,7 +46,7 @@ const CheckoutForm = () => {
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',  // Ensure the type property is included
+      type: 'card',
       card: cardElement,
       billing_details: {
         email,
