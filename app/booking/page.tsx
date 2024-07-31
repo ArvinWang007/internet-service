@@ -30,7 +30,7 @@ const BookingForm = () => {
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
-      card: cardElement as any,
+      card: cardElement,
       billing_details: {
         email,
       },
