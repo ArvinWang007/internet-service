@@ -25,15 +25,11 @@ export async function POST(req: Request) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
 
-    // Retrieve the subscription details from Stripe.
     const subscription = await stripe.subscriptions.retrieve(
       session.subscription as string,
     );
 
-    // Update the user stripe into in our database.
-    // Since this is the initial subscription, we need to update
-    // the subscription id and customer id.
-    // 你可以在这里更新你的数据库逻辑
+    // 更新用户数据库逻辑
   }
 
   if (event.type === "invoice.payment_succeeded") {
@@ -44,8 +40,7 @@ export async function POST(req: Request) {
         session.subscription as string,
       );
 
-      // Update the price id and set the new period end
-      // 你可以在这里更新你的数据库逻辑
+      // 更新用户数据库逻辑
     }
   }
 

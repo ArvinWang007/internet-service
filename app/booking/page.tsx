@@ -12,7 +12,7 @@ const BookingForm = () => {
   const elements = useElements();
   const [email, setEmail] = useState('');
   const [startDate, setStartDate] = useState('');
-  const [duration, setDuration] = useState('One Week'); // default duration
+  const [duration, setDuration] = useState('One Week');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
