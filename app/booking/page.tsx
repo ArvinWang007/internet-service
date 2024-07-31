@@ -1,11 +1,11 @@
 "use client";
 
+import { NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY } from '@/config/env';
 import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useState } from 'react';
 
-// 使用类型断言确保 `process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` 是一个字符串
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
+const stripePromise = loadStripe(NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const BookingForm = () => {
   const stripe = useStripe();
@@ -14,7 +14,7 @@ const BookingForm = () => {
   const [startDate, setStartDate] = useState('');
   const [duration, setDuration] = useState('One Week'); // default duration
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
