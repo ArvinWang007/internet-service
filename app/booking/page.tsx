@@ -11,7 +11,7 @@ const BookingForm = () => {
   const elements = useElements();
   const [email, setEmail] = useState('');
   const [startDate, setStartDate] = useState('');
-  const [duration, setDuration] = useState('week'); // default duration
+  const [duration, setDuration] = useState('One Week'); // default duration
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -71,9 +71,12 @@ const BookingForm = () => {
         onChange={(e) => setStartDate(e.target.value)}
         required
       />
-      <select value={duration} onChange={(e) => setDuration(e.target.value)} required>
-        <option value="week">One Week</option>
-        <option value="month">One Month</option>
+      <select
+        value={duration}
+        onChange={(e) => setDuration(e.target.value)}
+      >
+        <option value="One Week">One Week</option>
+        <option value="One Month">One Month</option>
       </select>
       <CardElement />
       <button type="submit" disabled={!stripe}>

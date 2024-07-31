@@ -8,17 +8,17 @@ export async function POST(req: Request) {
   const body = await req.json();
 
   try {
-    const { paymentMethodId, date, time, email } = body;
+    const { paymentMethodId, date, duration, email } = body;
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: 18800, // e.g., $188.00
+      amount: duration === 'One Week' ? 18800 : 75200, // $188 for one week, $752 for one month
       currency: 'usd',
       payment_method: paymentMethodId,
       confirmation_method: 'manual',
       confirm: true,
     });
 
-    // Here, you should save the booking information to your database
+    // Save booking information to your database here
 
     return new Response(JSON.stringify({ paymentIntent }), { status: 200 });
   } catch (err) {
