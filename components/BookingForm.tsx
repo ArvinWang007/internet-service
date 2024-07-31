@@ -2,7 +2,7 @@
 
 import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from './BookingForm.module.css';
 
 // 从环境变量中加载 Stripe 公钥
@@ -29,7 +29,7 @@ const CheckoutForm = () => {
   const [date, setDate] = useState('');
   const [duration, setDuration] = useState('One Week');
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!stripe || !elements) {
       return;
