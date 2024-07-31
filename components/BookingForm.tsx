@@ -10,10 +10,10 @@ const BookingForm = () => {
 
   useEffect(() => {
     const publicKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-    if (!publicKey) {
-      console.error('Stripe public key is not defined in environment variables');
-    } else {
+    if (publicKey) {
       setStripePromise(loadStripe(publicKey));
+    } else {
+      console.error('Stripe public key is not defined in environment variables');
     }
   }, []);
 
