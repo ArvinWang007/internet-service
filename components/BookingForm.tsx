@@ -42,6 +42,7 @@ const CheckoutForm = () => {
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',  // Ensure the type property is included
       card: cardElement,
       billing_details: {
         email,
