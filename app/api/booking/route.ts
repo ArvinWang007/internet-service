@@ -24,6 +24,10 @@ export async function POST(req: Request) {
 
     return new Response(JSON.stringify({ paymentIntent }), { status: 200 });
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    if (err instanceof Error) {
+      return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    } else {
+      return new Response(JSON.stringify({ error: 'Unknown error occurred' }), { status: 500 });
+    }
   }
 }
