@@ -44,7 +44,7 @@ export async function POST(req: Request) {
         session.subscription as string,
       );
 
-      // Update the price id and set the new period end.
+      // Update the price id and set the new period end
       // 你可以在这里更新你的数据库逻辑
     }
   }
