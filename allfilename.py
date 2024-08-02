@@ -1,9 +1,15 @@
 import os
 import pyperclip
 
-def get_all_files_in_directory(directory):
+def get_all_files_in_directory(directory, ignore_dirs=None):
+    if ignore_dirs is None:
+        ignore_dirs = ['node_modules', '.next', '.git']
+    
     all_files = []
     for root, dirs, files in os.walk(directory):
+        # 移除不需要遍历的目录
+        dirs[:] = [d for d in dirs if d not in ignore_dirs]
+        
         for file in files:
             all_files.append(os.path.join(root, file))
     return all_files
@@ -16,6 +22,4 @@ all_files = get_all_files_in_directory(directory_path)
 files_string = '\n'.join(all_files)
 pyperclip.copy(files_string)
 
-print("All file paths have been copied to the clipboard.")
-
-
+print("All file paths (excluding node_modules) have been copied to the clipboard.")

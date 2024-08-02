@@ -1,11 +1,9 @@
 "use client";
-
 import BookingForm from '@/components/BookingForm';
 
 const BookingPage = () => {
   return (
-    <div>
-      <h1>Book Your VPN Service</h1>
+    <div className="container">
       <BookingForm />
     </div>
   );

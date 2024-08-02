@@ -1,29 +1,15 @@
-import { ALL_FEATURES } from "@/config/feature";
-import React from "react";
 import { RoughNotation } from "react-rough-notation";
 
-const Feature = ({
-  id,
-  locale,
-  langName,
-}: {
-  id: string;
-  locale: any;
-  langName: string;
-}) => {
-  const FEATURES = ALL_FEATURES[`FEATURES_${langName.toUpperCase()}`];
+const Feature = ({ id, locale, langName }: { id: string, locale: any, langName: string }) => {
   return (
-    <section
-      id={id}
-      className="flex flex-col justify-center lg:max-w-7xl md:max-w-5xl w-[95%] mx-auto md:gap-14 pt-16"
-    >
-      <h2 className="text-center text-white">
+    <section id={id} className="flex flex-col justify-center lg:max-w-7xl md:max-w-5xl w-[95%] mx-auto md:gap-14 pt-16 text-foreground">
+      <h2 className="text-6xl font-bold text-center text-white mb-4">
         <RoughNotation type="highlight" show={true} color="#2563EB">
           {locale.title}
         </RoughNotation>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {FEATURES?.map((feature, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-gray-700">
+        {locale.features.map((feature: any, index: number) => (
           <div
             key={feature.title}
             className={`
@@ -36,17 +22,8 @@ const Feature = ({
               ${index === 5 ? "border-b-0 border-r-0" : ""}
             `}
           >
-            <div className="p-4 w-16 h-16 dark:text-white rounded-full flex items-center justify-center">
-              {feature.icon && typeof feature.icon === "string" ? (
-                <span className="text-2xl">{feature.icon}</span>
-              ) : (
-                React.createElement(feature.icon, { className: "text-2xl" })
-              )}
-            </div>
-            <h2 className={"text-xl font-semibold mb-2"}>{feature.title}</h2>
-            <p className="text-slate-700 dark:text-slate-400">
-              {feature.content}
-            </p>
+            <h3 className="text-xl font-semibold text-foreground">{feature.title}</h3>
+            <p className="mt-2 text-muted-foreground">{feature.description}</p>
           </div>
         ))}
       </div>

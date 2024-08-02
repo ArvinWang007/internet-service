@@ -3,6 +3,8 @@ import { RocketIcon } from "lucide-react";
 import Link from "next/link";
 
 const CTAButton = ({ locale }: { locale: any }) => {
+  const title = locale?.title || "Get Boilerplate"; // 提供一个默认值
+
   return (
     <Link
       href="https://github.com/weijunext/landing-page-boilerplate"
@@ -15,7 +17,7 @@ const CTAButton = ({ locale }: { locale: any }) => {
         aria-label="Get Boilerplate"
       >
         <RocketIcon />
-        {locale.title}
+        {title}
       </Button>
     </Link>
   );

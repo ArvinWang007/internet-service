@@ -1,47 +1,100 @@
 {
   "Hero": {
-    "title1": "VPN",
-    "title2": "For",
-    "title3": "Visiting Tourists",
-    "description": "A VPN service for visiting tourists to connect to the global internet."
-  },
-  "SocialProof": {
-    "maker": "makers ship fast"
-  },
-  "Showcase": {
-    "title": "Showcase",
-    "description": "Join 1000+ Makers Boosting Conversions with Our Landing Page Boilerplate"
+    "title1": "Best VPN for",
+    "title2": "short trips",
+    "title3": "to China",
+    "description": "Are you planning a trip to China and worried about accessing your favourite websites and online services that are banned there? Look no further! Our VPN service is here to ensure you stay connected to the global internet seamlessly and securely. Whether you're traveling for business or pleasure, we've got you covered."
   },
   "Feature": {
-    "title": "Features"
+    "title": "Why VPN in China?",
+    "features": [
+      {
+        "title": "Access Blocked Websites",
+        "description": "With our VPN, you can visit websites like Google, Facebook, YouTube, Twitter, Instagram, and more, without any restrictions, no matter where you are or device you use."
+      },
+      {
+        "title": "Secure and Private Browsing",
+        "description": "Protect your personal information and browse the internet with complete privacy. Our VPN uses advanced encryption to keep your data safe from hackers and surveillance."
+      },
+      {
+        "title": "Fast and Reliable Connection",
+        "description": "Enjoy a high-speed internet connection without interruptions. Our servers are optimized to provide you with the best possible performance, so you can stream, browse, and download with ease."
+      },
+      {
+        "title": "Global Server Network",
+        "description": "Connect to servers in multiple countries and access content from around the world. Our extensive server network ensures that you can always find a fast and reliable connection."
+      },
+      {
+        "title": "Auto Switch VPN",
+        "description": "Many Chinese websites or online services can't be accessed directly when visiting China. Our VPN automatically switches servers when needed, so you don’t need to switch VPN on and off frequently."
+      },
+      {
+        "title": "7x24 Online Service",
+        "description": "We are ready to solve your problem anytime. You can contact us through online chat, email, wechat, whatsapp, telegram and FB/IG messenger."
+      }
+    ]
   },
   "Pricing": {
     "title": "Pricing",
-    "title2": "Get unlimited access.",
-    "description": "The page you are currently viewing is an open-source, free boilerplate.",
-    "doYouLike": "Do you like this landing page boilerplate?",
-    "follow": "Follow my Twitter."
-  },
-  "Testimonials": {
-    "title": "Testimonials",
-    "description1": "If you use this landing page template and recommend it on your Twitter,",
-    "description2": "please let me know",
-    "description3": ". I will display your tweet and recommendation here."
+    "title2": "We offer flexible VPN plans to suit your travel needs",
+    "description": "Hit the 'Start Now' button if you find the time plan that covers your trip length.",
+    "plans": [
+      {
+        "name": "7-Day Plan",
+        "price": "$9.00",
+        "description": "Perfect for short trips and vacations. Get the protection you need without committing to a long-term plan.",
+        "cta": "Start now"
+      },
+      {
+        "name": "1-Month Plan",
+        "price": "$24.00",
+        "description": "Ideal for business trips and extended stays. Enjoy the convenience of a longer plan without worrying about renewals.",
+        "cta": "Start now"
+      },
+      {
+        "name": "2-Month Plan",
+        "price": "$39.00",
+        "description": "Best for long-term visits and frequent travelers. Save money with our most cost-effective option for extended use.",
+        "cta": "Start now"
+      }
+    ]
   },
   "FAQ": {
     "title": "FAQs",
-    "description": "Here are some of the most frequently asked questions."
+    "description": "Here are some of the most frequently asked questions.",
+    "questions": [
+      {
+        "question": "What is a VPN?",
+        "answer": "A VPN, or Virtual Private Network, is a service that allows you to connect to the internet securely and privately by routing your connection through a server and hiding your online actions."
+      },
+      {
+        "question": "How does the VPN service work?",
+        "answer": "Our VPN service encrypts your internet connection and routes it through one of our secure servers, masking your IP address and allowing you to access blocked content."
+      },
+      {
+        "question": "Is my data secure with this VPN?",
+        "answer": "Yes, our VPN uses advanced encryption to ensure that your data is secure and protected from hackers and surveillance."
+      },
+      {
+        "question": "Can I use the VPN on multiple devices?",
+        "answer": "Yes, our VPN service can be used on multiple devices including smartphones, tablets, and computers."
+      }
+    ]
   },
-  "CTA": {
-    "title": "Build Your Landing Page Now",
-    "description1": "Build",
-    "description2": "your landing page,",
-    "description3": "show",
-    "description4": "your product, and",
-    "description5": "start earning",
-    "description6": "!"
-  },
-  "CTAButton": {
-    "title": "Get Boilerplate"
+  "Payment": {
+    "title": "Payment",
+    "description": "Securely pay for your VPN service using our trusted payment methods.",
+    "formFields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "date": {
+        "label": "Arrival Date",
+        "placeholder": "Select your arrival date"
+      },
+      "submitButton": "Book and Pay",
+      "selectedPlan": "Selected Plan"
+    }
   }
 }

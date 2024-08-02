@@ -19,15 +19,11 @@ const links = [
     href: "/#Pricing",
   },
   {
-    label: "Testimonials",
-    href: "/#Testimonials",
-  },
-  {
     label: "FAQ",
     href: "/#FAQ",
   },
   {
-    label: "Booking",
+    label: "Payment",
     href: "/booking",
   },
 ];
@@ -64,7 +60,7 @@ const Header = () => {
                 href={link.href}
                 aria-label={link.label}
                 title={link.label}
-                className="tracking-wide transition-colors duration-200 font-norma"
+                className="tracking-wide transition-colors duration-200 font-normal"
               >
                 {link.label}
               </Link>
@@ -114,7 +110,7 @@ const Header = () => {
                     <button
                       aria-label="Close Menu"
                       title="Close Menu"
-                      className="tracking-wide transition-colors duration-200 font-norma"
+                      className="tracking-wide transition-colors duration-200 font-normal"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <CgClose />
@@ -129,7 +125,7 @@ const Header = () => {
                           href={link.href}
                           aria-label={link.label}
                           title={link.label}
-                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {link.label}

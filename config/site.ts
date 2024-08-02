@@ -6,7 +6,7 @@ import { SiBuymeacoffee, SiJuejin } from "react-icons/si";
 const OPEN_SOURCE_URL = 'https://github.com/weijunext/landing-page-boilerplate'
 
 const baseSiteConfig = {
-  name: "VPN for Visiting Tourists",
+  name: "VPN in China",
   description:
     "A VPN service that allows tourists to access the global internet in China.",
   url: "https://landingpage.weijunext.com",

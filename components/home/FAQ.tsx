@@ -1,26 +1,15 @@
 "use client";
-import { ALL_FAQS } from "@/config/faqs";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import { PlusIcon } from "lucide-react";
 import { RoughNotation } from "react-rough-notation";
 
-// update rough notation highlight
+// 更新 Rough Notation 高亮
 function triggerResizeEvent() {
   const event = new Event("resize");
   window.dispatchEvent(event);
 }
 
-const FAQ = ({
-  id,
-  locale,
-  langName,
-}: {
-  id: string;
-  locale: any;
-  langName: string;
-}) => {
-  const FAQS = ALL_FAQS[`FAQS_${langName.toUpperCase()}`];
-
+const FAQ = ({ id, locale, langName }) => {
   return (
     <section
       id={id}
@@ -44,18 +33,18 @@ const FAQ = ({
           trigger: "py-6",
           content: "pt-0 pb-6 text-base text-default-500",
         }}
-        items={FAQS}
+        items={locale.questions}
         selectionMode="multiple"
         variant="splitted"
         onSelectionChange={triggerResizeEvent}
       >
-        {FAQS?.map((item) => (
+        {locale.questions.map((item, index) => (
           <AccordionItem
-            key={item.title}
+            key={index}
             indicator={<PlusIcon />}
-            title={item.title}
+            title={item.question}
           >
-            {item.content}
+            {item.answer}
           </AccordionItem>
         ))}
       </Accordion>
