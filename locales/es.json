@@ -1,46 +1,100 @@
 {
   "Hero": {
-    "title1": "",
-    "title2": "Página de aterrizaje",
-    "title3": "construcción rápida"
-  },
-  "SocialProof": {
-    "maker": "creadores construyen rápido"
-  },
-  "Showcase": {
-    "title": "Escaparate",
-    "description": "Únete a más de 1000 creadores que aumentan sus conversiones con nuestra plantilla de página de aterrizaje"
+    "title1": "Mejor VPN para",
+    "title2": "viajes cortos",
+    "title3": "a China",
+    "description": "¿Planeas un viaje a China y te preocupa acceder a tus sitios web y servicios en línea favoritos que están prohibidos allí? ¡No busques más! Nuestro servicio VPN está aquí para asegurarte de que te mantengas conectado a Internet global de manera fluida y segura. Ya sea que viajes por negocios o por placer, te tenemos cubierto."
   },
   "Feature": {
-    "title": "Características"
+    "title": "¿Por qué VPN en China?",
+    "features": [
+      {
+        "title": "Accede a sitios web bloqueados",
+        "description": "Con nuestra VPN, puedes visitar sitios como Google, Facebook, YouTube, Twitter, Instagram y más, sin ninguna restricción, sin importar dónde estés o el dispositivo que uses."
+      },
+      {
+        "title": "Navegación segura y privada",
+        "description": "Protege tu información personal y navega por Internet con total privacidad. Nuestra VPN utiliza cifrado avanzado para mantener tus datos seguros de hackers y vigilancia."
+      },
+      {
+        "title": "Conexión rápida y confiable",
+        "description": "Disfruta de una conexión a Internet de alta velocidad sin interrupciones. Nuestros servidores están optimizados para ofrecerte el mejor rendimiento posible, para que puedas transmitir, navegar y descargar con facilidad."
+      },
+      {
+        "title": "Red global de servidores",
+        "description": "Conéctate a servidores en múltiples países y accede a contenido de todo el mundo. Nuestra extensa red de servidores garantiza que siempre puedas encontrar una conexión rápida y confiable."
+      },
+      {
+        "title": "Cambio automático de VPN",
+        "description": "Muchos sitios web chinos o servicios en línea no se pueden acceder directamente al visitar China. Nuestra VPN cambia automáticamente los servidores cuando es necesario, para que no tengas que activar y desactivar la VPN con frecuencia."
+      },
+      {
+        "title": "Servicio en línea 24/7",
+        "description": "Estamos listos para resolver tu problema en cualquier momento. Puedes contactarnos a través de chat en línea, correo electrónico, WeChat, WhatsApp, Telegram y Messenger de Facebook/Instagram."
+      }
+    ]
   },
   "Pricing": {
     "title": "Precios",
-    "title2": "Obtén acceso ilimitado.",
-    "description": "La página que estás viendo actualmente es un template gratuito y de código abierto.",
-    "doYouLike": "¿Te gusta este template para páginas de aterrizaje?",
-    "follow": "Sigue mi Twitter."
-  },
-  "Testimonials": {
-    "title": "Muro del Amor",
-    "description1": "Si usas esta plantilla para página de aterrizaje y la recomiendas en tu Twitter,",
-    "description2": "por favor házmelo saber",
-    "description3": ". Exhibiré tu tweet y recomendación aquí."
+    "title2": "Ofrecemos planes de VPN flexibles para adaptarse a tus necesidades de viaje",
+    "description": "Haz clic en el botón 'Comenzar ahora' si encuentras el plan de tiempo que cubre la duración de tu viaje.",
+    "plans": [
+      {
+        "name": "Plan de 7 días",
+        "price": "$9.00",
+        "description": "Perfecto para viajes cortos y vacaciones. Obtén la protección que necesitas sin comprometerte con un plan a largo plazo.",
+        "cta": "Comenzar ahora"
+      },
+      {
+        "name": "Plan de 1 mes",
+        "price": "$24.00",
+        "description": "Ideal para viajes de negocios y estancias prolongadas. Disfruta de la comodidad de un plan más largo sin preocuparte por las renovaciones.",
+        "cta": "Comenzar ahora"
+      },
+      {
+        "name": "Plan de 2 meses",
+        "price": "$39.00",
+        "description": "Mejor para visitas a largo plazo y viajeros frecuentes. Ahorra dinero con nuestra opción más rentable para uso prolongado.",
+        "cta": "Comenzar ahora"
+      }
+    ]
   },
   "FAQ": {
-    "title": "Preguntas Frecuentes",
-    "description": "Aquí están algunas de las preguntas más frecuentes."
+    "title": "Preguntas frecuentes",
+    "description": "Aquí están algunas de las preguntas más frecuentes.",
+    "questions": [
+      {
+        "question": "¿Qué es una VPN?",
+        "answer": "Una VPN, o Red Privada Virtual, es un servicio que te permite conectarte a Internet de manera segura y privada, enrutando tu conexión a través de un servidor y ocultando tus acciones en línea."
+      },
+      {
+        "question": "¿Cómo funciona el servicio VPN?",
+        "answer": "Nuestro servicio VPN cifra tu conexión a Internet y la enruta a través de uno de nuestros servidores seguros, enmascarando tu dirección IP y permitiéndote acceder a contenido bloqueado."
+      },
+      {
+        "question": "¿Mis datos están seguros con esta VPN?",
+        "answer": "Sí, nuestra VPN utiliza cifrado avanzado para asegurar que tus datos estén seguros y protegidos de hackers y vigilancia."
+      },
+      {
+        "question": "¿Puedo usar la VPN en múltiples dispositivos?",
+        "answer": "Sí, nuestro servicio VPN se puede usar en múltiples dispositivos, incluidos teléfonos inteligentes, tabletas y computadoras."
+      }
+    ]
   },
-  "CTA": {
-    "title": "Construye tu página de aterrizaje ahora",
-    "description1": "Construye",
-    "description2": "tu página de aterrizaje,",
-    "description3": "muestra",
-    "description4": "tu producto, y",
-    "description5": "comienza a ganar",
-    "description6": "¡dinero!"
-  },
-  "CTAButton": {
-    "title": "Obtener Plantilla"
+  "Payment": {
+    "title": "Pago",
+    "description": "Paga de manera segura por tu servicio VPN utilizando nuestros métodos de pago confiables.",
+    "formFields": {
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "Introduce tu correo electrónico"
+      },
+      "date": {
+        "label": "Fecha de llegada",
+        "placeholder": "Selecciona tu fecha de llegada"
+      },
+      "submitButton": "Reservar y pagar",
+      "selectedPlan": "Plan seleccionado"
+    }
   }
 }

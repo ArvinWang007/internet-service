@@ -1,56 +1,15 @@
-"use client";
-
-import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-import dynamic from 'next/dynamic';
+import { CardElement } from '@stripe/react-stripe-js';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import pricingData from '../locales/en.json';
+import { useState } from 'react';
 import styles from './BookingForm.module.css';
 
-const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-  : null;
-
-const BookingForm = () => {
-  const [clientSecret, setClientSecret] = useState<string | null>(null);
-
-  useEffect(() => {
-    const createPaymentIntent = async () => {
-      try {
-        const response = await fetch('/api/create-payment-intent', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ amount: 5000 }), // specify the amount as needed
-        });
-        const data = await response.json();
-        setClientSecret(data.clientSecret);
-      } catch (error) {
-        console.error('Error fetching client secret:', error);
-      }
-    };
-
-    if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
-      createPaymentIntent();
-    }
-  }, []);
-
-  return (
-    <div>
-      {stripePromise && clientSecret ? (
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm showPaymentForm={true} />
-        </Elements>
-      ) : (
-        <CheckoutForm showPaymentForm={false} />
-      )}
-    </div>
-  );
+type Props = {
+  showPaymentForm: boolean;
+  pricingData: any;
+  handleSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const CheckoutForm = ({ showPaymentForm }: { showPaymentForm: boolean }) => {
+const CheckoutForm = ({ showPaymentForm, pricingData, handleSubmit }: Props) => {
   const searchParams = useSearchParams();
   const plan = searchParams.get('plan');
   const [email, setEmail] = useState('');
@@ -98,34 +57,6 @@ const CheckoutForm = ({ showPaymentForm }: { showPaymentForm: boolean }) => {
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (showPaymentForm) {
-      const stripe = useStripe();
-      const elements = useElements();
-      if (!stripe || !elements) return;
-
-      const cardElement = elements.getElement(CardElement);
-      if (!cardElement) return;
-
-      const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: cardElement,
-        billing_details: { email },
-      });
-
-      if (error) {
-        console.error(error);
-      } else {
-        console.log(paymentMethod);
-        // You can send paymentMethod.id to your server here
-      }
-    } else {
-      // Handle non-payment logic
-      console.log('Form submitted without payment');
-    }
-  };
-
   return (
     <form onSubmit={handleSubmit} className={styles.bookingForm}>
       <h2>{pricingData.Pricing.title}</h2>
@@ -162,11 +93,16 @@ const CheckoutForm = ({ showPaymentForm }: { showPaymentForm: boolean }) => {
         <p>End Date: {endDate}</p>
       )}
       {showPaymentForm && (
-        <CardElement className={styles.cardElement} />
+        <div>
+          <label>{pricingData.Payment.formFields.card.label}</label>
+          <CardElement className={styles.cardElement} />
+        </div>
       )}
-      <button type="submit" className={styles.formButton}>{pricingData.Payment.formFields.submitButton}</button>
+      <button type="submit" className={styles.formButton}>
+        {pricingData.Payment.formFields.submitButton}
+      </button>
     </form>
   );
 };
 
-export default dynamic(() => Promise.resolve(BookingForm), { ssr: false });
+export default CheckoutForm;
