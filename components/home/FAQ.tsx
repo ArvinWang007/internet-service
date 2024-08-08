@@ -3,13 +3,31 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 import { PlusIcon } from "lucide-react";
 import { RoughNotation } from "react-rough-notation";
 
+// Define types for the props
+interface Question {
+  question: string;
+  answer: string;
+}
+
+interface Locale {
+  title: string;
+  description: string;
+  questions: Question[];
+}
+
+interface FAQProps {
+  id: string;
+  locale: Locale;
+  langName: string;
+}
+
 // 更新 Rough Notation 高亮
 function triggerResizeEvent() {
   const event = new Event("resize");
   window.dispatchEvent(event);
 }
 
-const FAQ = ({ id, locale, langName }) => {
+const FAQ = ({ id, locale, langName }: FAQProps) => {
   return (
     <section
       id={id}

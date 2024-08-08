@@ -1,42 +1,57 @@
-import { match } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import HttpBackend from 'i18next-http-backend';
+import { initReactI18next } from 'react-i18next';
 
-export const locales = ["", "en", "en-US", "zh", "zh-CN", "zh-TW", 'zh-HK', 'ja', "ar", "es", "ru"];
-export const localeNames: any = {
-  en: "🇺🇸 English",
-  zh: "🇨🇳 中文",
-  ja: "🇯🇵 日本語",
-  ar: "🇸🇦 العربية",
-  es: "🇪🇸 Español",
-  ru: "🇷🇺 Русский",
-};
-export const defaultLocale = "en";
+const supportedLanguages = ['en', 'zh', 'ja', 'ar', 'es', 'ru', 'fr', 'de', 'pt', 'ko'];
 
-// If you wish to automatically redirect users to a URL that matches their browser's language setting,
-// you can use the `getLocale` to get the browser's language.
-export function getLocale(headers: any): string {
-  let languages = new Negotiator({ headers }).languages();
+i18n
+  .use(HttpBackend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: 'en',
+    supportedLngs: supportedLanguages,
+    backend: {
+      loadPath: '/locales/{{lng}}/common.json',
+    },
+    detection: {
+      order: ['cookie', 'localStorage', 'navigator'],
+      caches: ['cookie'],
+    },
+    react: {
+      useSuspense: false,
+    },
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
-  return match(languages, locales, defaultLocale);
-}
-
-const dictionaries: any = {
-  en: () => import("@/locales/en.json").then((module) => module.default),
-  zh: () => import("@/locales/zh.json").then((module) => module.default),
-  ja: () => import("@/locales/ja.json").then((module) => module.default),
-  ar: () => import("@/locales/ar.json").then((module) => module.default),
-  es: () => import("@/locales/es.json").then((module) => module.default),
-  ru: () => import("@/locales/ru.json").then((module) => module.default),
-};
-
-export const getDictionary = async (locale: string) => {
-  if (["zh-CN", "zh-TW", "zh-HK"].includes(locale)) {
-    locale = "zh";
+export const getDictionary = async (locale: string, origin: string) => {
+  if (!supportedLanguages.includes(locale)) {
+    locale = 'en';
   }
 
-  if (!Object.keys(dictionaries).includes(locale)) {
-    locale = "en";
+  const url = `${origin}/locales/${locale}/common.json`;
+  console.log(`Fetching dictionary from URL: ${url}`);
+
+  const res = await fetch(url);
+  console.log(`Response status: ${res.status}`);
+  if (!res.ok) {
+    throw new Error(`Failed to fetch dictionary. Status: ${res.status}`);
   }
 
-  return dictionaries[locale]();
+  const text = await res.text();
+  console.log(`Response text: ${text}`);
+
+  try {
+    const data = JSON.parse(text);
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON:', error);
+    console.error('Response text:', text);
+    throw error;
+  }
 };
+
+export default i18n;

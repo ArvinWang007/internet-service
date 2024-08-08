@@ -1,0 +1,100 @@
+{
+  "Hero": {
+    "title1": "Meilleur VPN pour",
+    "title2": "les courts séjours",
+    "title3": "en Chine",
+    "description": "Vous planifiez un voyage en Chine et vous vous inquiétez de l'accès à vos sites web et services en ligne favoris qui y sont interdits ? Ne cherchez pas plus loin ! Notre service VPN est là pour vous garantir une connexion continue et sécurisée à l'internet mondial. Que vous voyagiez pour affaires ou pour le plaisir, nous avons ce qu'il vous faut."
+  },
+  "Feature": {
+    "title": "Pourquoi un VPN en Chine ?",
+    "features": [
+      {
+        "title": "Accéder aux sites web bloqués",
+        "description": "Avec notre VPN, vous pouvez visiter des sites web comme Google, Facebook, YouTube, Twitter, Instagram et plus encore, sans aucune restriction, où que vous soyez et quel que soit l'appareil que vous utilisez."
+      },
+      {
+        "title": "Navigation sécurisée et privée",
+        "description": "Protégez vos informations personnelles et naviguez sur internet en toute confidentialité. Notre VPN utilise un chiffrement avancé pour garder vos données en sécurité contre les pirates et la surveillance."
+      },
+      {
+        "title": "Connexion rapide et fiable",
+        "description": "Profitez d'une connexion internet à haute vitesse sans interruptions. Nos serveurs sont optimisés pour vous offrir les meilleures performances possibles, afin que vous puissiez diffuser, naviguer et télécharger facilement."
+      },
+      {
+        "title": "Réseau de serveurs mondial",
+        "description": "Connectez-vous à des serveurs dans plusieurs pays et accédez à du contenu du monde entier. Notre vaste réseau de serveurs garantit que vous pouvez toujours trouver une connexion rapide et fiable."
+      },
+      {
+        "title": "Changement automatique de VPN",
+        "description": "De nombreux sites web ou services en ligne chinois ne peuvent pas être accédés directement lors de la visite en Chine. Notre VPN change automatiquement de serveur si nécessaire, vous n'avez donc pas besoin de désactiver et réactiver fréquemment le VPN."
+      },
+      {
+        "title": "Service en ligne 7x24",
+        "description": "Nous sommes prêts à résoudre votre problème à tout moment. Vous pouvez nous contacter via le chat en ligne, l'email, WeChat, WhatsApp, Telegram et le messager FB/IG."
+      }
+    ]
+  },
+  "Pricing": {
+    "title": "Tarification",
+    "title2": "Nous offrons des plans VPN flexibles adaptés à vos besoins de voyage",
+    "description": "Cliquez sur le bouton 'Commencer maintenant' si vous trouvez le plan temporel qui couvre la durée de votre voyage.",
+    "plans": [
+      {
+        "name": "Plan de 7 jours",
+        "price": "9,00 $",
+        "description": "Parfait pour les courts séjours et les vacances. Obtenez la protection dont vous avez besoin sans vous engager à long terme.",
+        "cta": "Commencer maintenant"
+      },
+      {
+        "name": "Plan de 1 mois",
+        "price": "24,00 $",
+        "description": "Idéal pour les voyages d'affaires et les séjours prolongés. Profitez de la commodité d'un plan plus long sans vous soucier des renouvellements.",
+        "cta": "Commencer maintenant"
+      },
+      {
+        "name": "Plan de 2 mois",
+        "price": "39,00 $",
+        "description": "Le meilleur pour les visites de longue durée et les voyageurs fréquents. Économisez de l'argent avec notre option la plus rentable pour une utilisation prolongée.",
+        "cta": "Commencer maintenant"
+      }
+    ]
+  },
+  "FAQ": {
+    "title": "FAQs",
+    "description": "Voici quelques-unes des questions les plus fréquemment posées.",
+    "questions": [
+      {
+        "question": "Qu'est-ce qu'un VPN ?",
+        "answer": "Un VPN, ou Réseau Privé Virtuel, est un service qui vous permet de vous connecter à internet de manière sécurisée et privée en acheminant votre connexion via un serveur et en masquant vos actions en ligne."
+      },
+      {
+        "question": "Comment fonctionne le service VPN ?",
+        "answer": "Notre service VPN chiffre votre connexion internet et la redirige via l'un de nos serveurs sécurisés, masquant votre adresse IP et vous permettant d'accéder à du contenu bloqué."
+      },
+      {
+        "question": "Mes données sont-elles sécurisées avec ce VPN ?",
+        "answer": "Oui, notre VPN utilise un chiffrement avancé pour garantir que vos données sont sécurisées et protégées contre les pirates et la surveillance."
+      },
+      {
+        "question": "Puis-je utiliser le VPN sur plusieurs appareils ?",
+        "answer": "Oui, notre service VPN peut être utilisé sur plusieurs appareils, y compris les smartphones, les tablettes et les ordinateurs."
+      }
+    ]
+  },
+  "Payment": {
+    "title": "Paiement",
+    "description": "Payez votre service VPN en toute sécurité en utilisant nos méthodes de paiement fiables.",
+    "formFields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre email"
+      },
+      "date": {
+        "label": "Date d'arrivée",
+        "placeholder": "Sélectionnez votre date d'arrivée"
+      },
+      "submitButton": "Réserver et payer",
+      "selectedPlan": "Plan sélectionné"
+    }
+  }
+}
