@@ -1,58 +1,71 @@
 "use client";
 
-import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import pricingData from '../locales/en.json';
 import styles from './BookingForm.module.css';
 
-const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-  : null;
+// Temporarily commenting out Stripe imports
+// import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
+
+// const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+//   ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+//   : null;
 
 const BookingForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null);
 
-  useEffect(() => {
-    const createPaymentIntent = async () => {
-      try {
-        const response = await fetch('/api/create-payment-intent', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ amount: 5000 }), // specify the amount as needed
-        });
-        const data = await response.json();
-        setClientSecret(data.clientSecret);
-      } catch (error) {
-        console.error('Error fetching client secret:', error);
-      }
-    };
+  // Temporarily commenting out Stripe hooks and useEffect
+  // const stripe = useStripe();
+  // const elements = useElements();
 
-    if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
-      createPaymentIntent();
-    }
-  }, []);
+  // useEffect(() => {
+  //   const createPaymentIntent = async () => {
+  //     try {
+  //       const response = await fetch('/api/create-payment-intent', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify({ amount: 5000 }), // specify the amount as needed
+  //       });
+  //       const data = await response.json();
+  //       setClientSecret(data.clientSecret);
+  //     } catch (error) {
+  //       console.error('Error fetching client secret:', error);
+  //     }
+  //   };
+
+  //   if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+  //     createPaymentIntent();
+  //   }
+  // }, []);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Temporarily bypass Stripe logic
+    console.log('Form submitted without payment');
+  };
 
   return (
     <div>
-      {stripePromise && clientSecret ? (
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm showPaymentForm={true} />
-        </Elements>
-      ) : (
-        <CheckoutForm showPaymentForm={false} />
-      )}
+      {/* Temporarily bypass the Stripe payment form */}
+      <CheckoutForm showPaymentForm={false} handleSubmit={handleSubmit} />
     </div>
   );
 };
 
-const CheckoutForm = ({ showPaymentForm }: { showPaymentForm: boolean }) => {
+const CheckoutForm = ({
+  showPaymentForm,
+  handleSubmit,
+}: {
+  showPaymentForm: boolean;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+}) => {
   const searchParams = useSearchParams();
-  const plan = searchParams.get('plan');
+  const plan = searchParams?.get('plan') || ''; // Use an empty string as a fallback
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
   const [selectedPlan, setSelectedPlan] = useState(plan || '');
@@ -98,34 +111,6 @@ const CheckoutForm = ({ showPaymentForm }: { showPaymentForm: boolean }) => {
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (showPaymentForm) {
-      const stripe = useStripe();
-      const elements = useElements();
-      if (!stripe || !elements) return;
-
-      const cardElement = elements.getElement(CardElement);
-      if (!cardElement) return;
-
-      const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: cardElement,
-        billing_details: { email },
-      });
-
-      if (error) {
-        console.error(error);
-      } else {
-        console.log(paymentMethod);
-        // You can send paymentMethod.id to your server here
-      }
-    } else {
-      // Handle non-payment logic
-      console.log('Form submitted without payment');
-    }
-  };
-
   return (
     <form onSubmit={handleSubmit} className={styles.bookingForm}>
       <h2>{pricingData.Pricing.title}</h2>
@@ -161,10 +146,13 @@ const CheckoutForm = ({ showPaymentForm }: { showPaymentForm: boolean }) => {
       {endDate && (
         <p>End Date: {endDate}</p>
       )}
-      {showPaymentForm && (
+      {/* Temporarily bypass the Stripe CardElement */}
+      {/* {showPaymentForm && (
         <CardElement className={styles.cardElement} />
-      )}
-      <button type="submit" className={styles.formButton}>{pricingData.Payment.formFields.submitButton}</button>
+      )} */}
+      <button type="submit" className={styles.formButton}>
+        {pricingData.Payment.formFields.submitButton}
+      </button>
     </form>
   );
 };

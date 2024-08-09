@@ -13,7 +13,8 @@ import { Analytics } from "@vercel/analytics/react";
 import dynamic from 'next/dynamic';
 import { Inter as FontSans } from "next/font/google";
 
-export const fontSans = FontSans({
+// Define fontSans, but do not export it
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
