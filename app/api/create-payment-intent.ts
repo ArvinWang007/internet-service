@@ -1,4 +1,4 @@
-// // pages/api/create-payment-intent.js
+// // pages/api/create-payment-intent.ts
 
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import Stripe from 'stripe';
