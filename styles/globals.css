@@ -82,15 +82,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
 /* 标题样式 */
 h1 {
