@@ -1,24 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
-// import { locales } from "./lib/i18n"; // Comment out this import since we're not using multi-language support
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Ensure the `/booking` path is not redirected
-  if (pathname === '/booking') {
-    return;
+  // Allow the `/booking` path and the root path `/` to proceed without modification
+  if (pathname === '/booking' || pathname === '/') {
+    return NextResponse.next(); // Proceed without any changes
   }
 
-  // Comment out the locale checking logic
-  // const isExit = locales.some(
-  //   (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  // );
+  // You can add other allowed paths here if needed
+  // e.g., if (pathname.startsWith('/allowed-path')) { return NextResponse.next(); }
 
-  // if (isExit) return;
-
-  // Redirect all non-matching paths to the root `/`
-  request.nextUrl.pathname = `/`;
-  return NextResponse.redirect(request.nextUrl);
+  // If none of the conditions match, proceed without any modifications or redirects
+  return NextResponse.next();
 }
 
 export const config = {
