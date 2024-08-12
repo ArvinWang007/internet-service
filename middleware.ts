@@ -1,21 +1,22 @@
-
 import { NextRequest, NextResponse } from "next/server";
-import { locales } from "./lib/i18n";
+// import { locales } from "./lib/i18n"; // Comment out this import since we're not using multi-language support
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 确保 `/booking` 路径不会被重定向
+  // Ensure the `/booking` path is not redirected
   if (pathname === '/booking') {
     return;
   }
 
-  const isExit = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
+  // Comment out the locale checking logic
+  // const isExit = locales.some(
+  //   (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  // );
 
-  if (isExit) return;
+  // if (isExit) return;
 
+  // Redirect all non-matching paths to the root `/`
   request.nextUrl.pathname = `/`;
   return NextResponse.redirect(request.nextUrl);
 }
