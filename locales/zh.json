@@ -1,47 +1,100 @@
 {
   "Hero": {
-    "title1": "快速构建",
-    "title2": "落地页",
-    "title3": "",
-    "description": "一个免费、开源且强大的落地页模板，适用于各种项目，让你在一个小时内搭建落地页。"
-  },
-  "SocialProof": {
-    "maker": "制作者快速开发"
-  },
-  "Showcase": {
-    "title": "Showcase",
-    "description": "与1000+创作者一起，使用我们的落地页模板提升转化率"
+    "title1": "最佳VPN适用于",
+    "title2": "短期旅行",
+    "title3": "到中国",
+    "description": "您是否计划前往中国，并担心无法访问您喜爱的网站和在线服务，因为它们在中国被封锁？不用担心！我们的VPN服务可以确保您无缝且安全地连接到全球互联网。无论您是出差还是旅游，我们都能满足您的需求。"
   },
   "Feature": {
-    "title": "Feature"
+    "title": "为什么在中国需要VPN?",
+    "features": [
+      {
+        "title": "访问被封锁的网站",
+        "description": "通过我们的VPN，您可以无障碍地访问Google、Facebook、YouTube、Twitter、Instagram等网站，无论您身在何处或使用什么设备。"
+      },
+      {
+        "title": "安全和私密的浏览",
+        "description": "保护您的个人信息，确保完全隐私地浏览互联网。我们的VPN使用先进的加密技术，确保您的数据免受黑客和监控的威胁。"
+      },
+      {
+        "title": "快速可靠的连接",
+        "description": "享受高速的互联网连接，无需中断。我们的服务器经过优化，可为您提供最佳的性能，让您轻松进行流媒体、浏览和下载。"
+      },
+      {
+        "title": "全球服务器网络",
+        "description": "连接到多个国家的服务器，访问全球的内容。我们广泛的服务器网络确保您始终能够找到快速且可靠的连接。"
+      },
+      {
+        "title": "自动切换VPN",
+        "description": "访问中国时，许多中国网站或在线服务无法直接访问。我们的VPN会在需要时自动切换服务器，因此您不必频繁手动切换VPN。"
+      },
+      {
+        "title": "7x24在线服务",
+        "description": "我们随时准备为您解决问题。您可以通过在线聊天、电子邮件、微信、WhatsApp、Telegram和FB/IG Messenger联系我们。"
+      }
+    ]
   },
   "Pricing": {
-    "title": "定价",
-    "title2": "拥有无限访问权限",
-    "description": "你当前查看的页面是一个开源的、免费的模板。",
-    "doYouLike": "你喜欢这个落地页模板吗？",
-    "follow": "关注我的推特。"
-  },
-  "Testimonials": {
-    "title": "Testimonials",
-    "description1": "如果你使用这个落地页模板并在推特上推荐了，",
-    "description2": "请告诉我",
-    "description3": "，我会在这里展示你的推文和推荐。"
+    "title": "价格",
+    "title2": "我们提供灵活的VPN计划，以满足您的旅行需求",
+    "description": "如果您找到覆盖您旅行时长的计划，请点击“立即开始”按钮。",
+    "plans": [
+      {
+        "name": "7天计划",
+        "price": "¥9.00",
+        "description": "非常适合短途旅行和度假。在不需要长期计划的情况下获得您所需的保护。",
+        "cta": "立即开始"
+      },
+      {
+        "name": "1个月计划",
+        "price": "¥24.00",
+        "description": "理想的商务旅行和长期停留。享受更长时间的计划，而无需担心续订。",
+        "cta": "立即开始"
+      },
+      {
+        "name": "2个月计划",
+        "price": "¥39.00",
+        "description": "最适合长期访问和频繁旅行者。通过我们最具性价比的选项节省开支，以便长期使用。",
+        "cta": "立即开始"
+      }
+    ]
   },
   "FAQ": {
-    "title": "FAQs",
-    "description": "这里有一些最常见的问题。"
+    "title": "常见问题",
+    "description": "以下是一些最常见的问题。",
+    "questions": [
+      {
+        "question": "什么是VPN?",
+        "answer": "VPN（虚拟专用网络）是一种服务，它允许您通过将您的连接路由到一个服务器并隐藏您的在线行为，从而安全和私密地连接互联网。"
+      },
+      {
+        "question": "VPN服务如何工作?",
+        "answer": "我们的VPN服务会加密您的互联网连接，并通过我们安全的服务器路由，隐藏您的IP地址，使您能够访问被封锁的内容。"
+      },
+      {
+        "question": "我的数据在使用这个VPN时安全吗?",
+        "answer": "是的，我们的VPN使用先进的加密技术，确保您的数据安全，免受黑客和监控的威胁。"
+      },
+      {
+        "question": "我可以在多个设备上使用VPN吗?",
+        "answer": "是的，我们的VPN服务可以在多个设备上使用，包括智能手机、平板电脑和电脑。"
+      }
+    ]
   },
-  "CTA": {
-    "title": "立即构建你的落地页",
-    "description1": "构建",
-    "description2": "你的落地页，",
-    "description3": "展示",
-    "description4": "你的产品，并开始",
-    "description5": "赚取收入",
-    "description6": "！"
-  },
-  "CTAButton": {
-    "title": "获取模板"
+  "Payment": {
+    "title": "支付",
+    "description": "通过我们可信赖的支付方式安全地支付您的VPN服务费用。",
+    "formFields": {
+      "email": {
+        "label": "电子邮件",
+        "placeholder": "输入您的电子邮件"
+      },
+      "date": {
+        "label": "到达日期",
+        "placeholder": "选择您的到达日期"
+      },
+      "submitButton": "预订并支付",
+      "selectedPlan": "选择的计划"
+    }
   }
 }
